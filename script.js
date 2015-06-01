@@ -1,4 +1,3 @@
-
 function domobj(){
   var self        =this;
   self.products   = [];
@@ -25,7 +24,14 @@ function domobj(){
       thishtml += self.products[i].htmlview;
       if ((i % 3 == 2) || i == (self.products.length-1) ){thishtml += "</div>";console.log("FINISH")}
     }
-    $("#content").append(thishtml)
+    $("#content").append(thishtml);
+    $('.close').click(function(e){
+      e.preventDefault();
+      $(this).parent().parent().fadeOut(300);
+    });
+    $('.overlay').fadeOut(300,function(){
+      $('#content').fadeIn(300);
+    });
   }
   
 }
